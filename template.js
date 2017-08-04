@@ -2,7 +2,7 @@ function template() {
   return {
     "name": {
       "keywords":[ "name", "title", "summary", "event name", "landmark", "location name", "activity name"],
-      "stopKeywprds": ["street", "contact", "person", "parent"],
+      "stopKeywprds": ["street", "contact", "person", "parent", "file", "partner"],
       keyHint: function(){
 
       },
