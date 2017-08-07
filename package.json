@@ -14,5 +14,10 @@
     "reformatting"
   ],
   "author": "Khaled Awad <khaled@alyawad.com> (khaled.alyawad.com)",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "decamelize":"latest",
+    "similarity":"latest",
+    "lodash":"latest"
+  }
 }

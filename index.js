@@ -1,5 +1,5 @@
 var decamelize = require('decamelize');
-var similarity = require("similarity");
+var similarity = require('similarity');
 var _ = require('lodash');
 var template = require('./template.js')
 var data = require('./data');
