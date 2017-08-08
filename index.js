@@ -1,7 +1,6 @@
 var decamelize = require('decamelize');
 var similarity = require('similarity');
 var _ = require('lodash');
-var moment= require('moment');
 
 module.exports = function(_template, _data) {
 
