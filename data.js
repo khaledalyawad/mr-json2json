@@ -1,7 +1,7 @@
 
-var data = {};
+var data = [];
 
-data.template0 = {
+data[0] = {
     "ID,N,10,0": 131,
     "ADDR_INFO,C,254": "",
     "TITLE,C,250": "Textile Museum of Canada",
@@ -21,7 +21,7 @@ data.template0 = {
     "DESCRIPTIO,C,254": "With more than 13,000 objects from more than 200 countries and regions, the Textile Museum of Canada celebrates cultural diversity through traditional fabrics, garments, carpets and related artifacts such as beadwork and basketry."
 }
 
-data.template1 = {
+data[1] = {
     "UID": "13691_20@www.toronto4kids.com",
     "DTSTAMP": "20170719T000757Z",
     "CATEGORIES": "ARTS + CULTURE,FAMILY ACTIVITIES,FREE EVENTS",
@@ -34,7 +34,7 @@ data.template1 = {
     "URL": "http://culture.mississauga.ca/event/bradley-museum/bradley-museums-50th-anniversary"
 }
 
-data.template2 = {
+data[2] = {
     "calEvent": {
         "orgType": "Non-Profit",
         "startDate": "2017-05-19T04:00:00.000Z",
@@ -129,7 +129,7 @@ data.template2 = {
     }
 }
 
-data.template3 = {
+data[3] = {
     "X": -79.6235147075948,
     "Y": 43.594283500055504,
     "FID": 32,
@@ -168,7 +168,7 @@ data.template3 = {
     "CENT_Y_385": 5402869.79453867
 }
 
-data.template4 = {
+data[4] = {
     "location_id": 3,
     "Parent Location ID": 3,
     "Location Name": "James Gardens",
@@ -186,7 +186,7 @@ data.template4 = {
     "Description": "James Gardens, a former estate on the west bank of the Humber River, is known for its flower gardens, terraced stone pathways beside sparkling spring-fed pools and streams, and mature trees. The park features the historic James Gazebo, along with terraced pathways and the original home \"Red Gables\". Here, you can also find lawn bowling, cross-country skiing, memorial cairn in rose garden, and a scenic lookout over the Humber Valley to downtown Toronto.\n<br><br>\n<strong>Special Features</strong><br>\nWILDLIFE - Listed as a top spot to see birds in the City's Birds of Toronto <a href=\"http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=766a036318061410VgnVCM10000071d60f89RCRD&vgnextfmt=default\">Biodiversity Series booklet</a>."
 }
 
-data.template5 = {
+data[5] = {
     "location_id": 13,
     "activity_id": 4872437,
     "activity_name": "Indoor Recreation Fun and Play with Caregiver",
@@ -223,7 +223,7 @@ data.template5 = {
     }]
 }
 
-data.template6 = {
+data[6] = {
     "baseUrl": "https://theex.com",
     "childEvents": [{
         "content": "New this year, the world of gaming will be coming to the CNE for three days only! The CNE Gaming Garage will be the place to play and watch eSports and Pinball!   Compete alongside players of all skill levels for the chance to win a cash prize.  Registration for these events is free and will be made available on our website in July – stay tuned!\r\nThe Gaming Garage space will also include Video Game Developers and Exhibitors, a Tabletop Gaming Library for you and your friends to play your favourite board game, and a Chess Grandmaster Challenge, where the audience can play against one of chess’ greatest minds.\r\nDon’t miss your opportunity to be a part of this never before CNE event! Keep an eye on our official hashtag #CNEGamingGarage for updates and sneak peeks!",
