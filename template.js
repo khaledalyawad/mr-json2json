@@ -9,6 +9,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "description": {
       "keywords":["content", "description"],
@@ -19,6 +20,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "summary": {
       "keywords":["summary"],
@@ -29,6 +31,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "lat": {
       "keywords": ["latitude" , "lat", "y"],
@@ -39,6 +42,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "long": {
       "keywords": ["longitude", "lng", "x"],
@@ -49,6 +53,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "postalCode": {
       "keywords": ["postal cd", "postal code", "zip code"],
@@ -59,6 +64,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "address": {
       "keywords": ["location", "locations", "address", "street no", "street number", "street name", "street type", "city", "postal cd", "postal code", "zip code", "country"],
@@ -69,6 +75,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "streetNumber": {
       "keywords": ["street no", "street number"],
@@ -79,6 +86,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "streetName": {
       "keywords": ["street name", "street type"],
@@ -89,6 +97,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "city": {
       "keywords": ["city"],
@@ -99,6 +108,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "country": {
       "keywords": ["country"],
@@ -109,6 +119,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "state": {
       "keywords": ["state"],
@@ -119,6 +130,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "startDate": {
       "keywords": ["start", "from"],
@@ -129,6 +141,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Date"
     },
     "endDate": {
       "keywords": ["end", "to"],
@@ -139,6 +152,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Date"
     },
     "startTime": {
       "keywords": ["time", "start", "from"],
@@ -149,6 +163,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Date"
     },
     "endTime": {
       "keywords": ["time", "end", "to"],
@@ -159,6 +174,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Date"
     },
     "tags": {
       "keywords": ["tags", "tag"],
@@ -169,6 +185,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "phone": {
       "keywords": ["phone"],
@@ -179,6 +196,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Phone"
     },
     "website": {
       "keywords": ["website"],
@@ -189,6 +207,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Url"
     },
     "contactPersonName": [],
     "email": {
@@ -200,6 +219,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Email"
     },
     "parking": {
       "keywords": ["parking"],
@@ -210,6 +230,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "price": {
       "keywords": ["price", "cost", "fee"],
@@ -220,6 +241,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "category": {
       "keywords": ["category", "categories", "location type", "tags", "tag"],
@@ -230,6 +252,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "image": {
       "keywords": ["image", "images", "img", "pictures"],
@@ -240,6 +263,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "Url"
     },
     "type": {
       "keywords": ["type", "location type"],
@@ -250,6 +274,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "isEvent": {
       "keywords": [],
@@ -260,6 +285,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "accessibility": {
       "keywords": [],
@@ -270,6 +296,7 @@ function template() {
       valueHint: function(){
 
       },
+      "type": "String"
     },
     "reservationsRequired": {
       "keywords": ["website"],
@@ -279,7 +306,8 @@ function template() {
       },
       valueHint: function(){
 
-      }
+      },
+      "type": "String"
     }
   }
 }
