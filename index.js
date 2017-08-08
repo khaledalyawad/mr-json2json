@@ -43,58 +43,62 @@ function traverseWapper (EXTERNALDATA, X) {
         // console.log(props, key);
         var _cleanedKey = decamelize(key, " ").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}_]/g,' ').replace(/[0-9]/g, '')
 
-        if(_cleanedKey == props.toLowerCase()){
-          // console.log('---- key Match ---');
-          // console.log(props+ ' : '+_cleanedKey+'       '+ props);
-          assignFinding(EXTERNALDATA, key, FINALRESULT, props)
+        if (EXTERNALDATA[key] && typeof(EXTERNALDATA[key]) != 'object') {
+          // if(true){
+          //   console.log(props);
+          //   console.log(TEMPLATE[props].keyHint);
+          if(TEMPLATE[props].keyHint(_cleanedKey) && TEMPLATE[props].valueHint(EXTERNALDATA[key])){
 
-        }else if(_cleanedKey.indexOf(props.toLowerCase()) > -1){
+            if(_cleanedKey == props.toLowerCase()){
+              // console.log('---- key Match ---');
+              // console.log(props+ ' : '+_cleanedKey+'       '+ props);
+              assignFinding(EXTERNALDATA, key, FINALRESULT, props)
 
-          if(!stopWordChecker(_cleanedKey, stopKeywprds)) {
-            // console.log('---- key indexOf ---');
-            // console.log(props+ ' : '+_cleanedKey+'       '+ props);
-            assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-          }
+            }else if(_cleanedKey.indexOf(props.toLowerCase()) > -1){
 
-        // }else if (similarity(_cleanedKey, props) > .6) {
-          // console.log('---- key similarity ---');
-          // console.log(similarity(_cleanedKey, props));
-          // console.log(_cleanedKey+'       '+ props);
-
-        } else if (EXTERNALDATA[key] && typeof(EXTERNALDATA[key]) != 'object') {
-          // console.log('HERE2');
-          if (TEMPLATE[props].keywords && TEMPLATE[props].keywords.length > 0) {
-            for (var i = 0; i < keywords.length; i++) {
-              // console.log(TEMPLATE[props].hint)
-              if( _cleanedKey == keywords[i] ){
-                // console.log('---- keyword Match ---');
-                // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
+              if(!stopWordChecker(_cleanedKey, stopKeywprds)) {
+                // console.log('---- key indexOf ---');
+                // console.log(props+ ' : '+_cleanedKey+'       '+ props);
                 assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-              } else if (_cleanedKey.indexOf(keywords[i])> -1 && keywords[i].length > 2) {
+              }
 
-                if (!stopWordChecker(_cleanedKey, stopKeywprds)){
-                  // console.log('---- keyword indexOf ---');
-                  // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
-                  assignFinding(EXTERNALDATA, key, FINALRESULT, props)
+            // }else if (similarity(_cleanedKey, props) > .6) {
+              // console.log('---- key similarity ---');
+              // console.log(similarity(_cleanedKey, props));
+              // console.log(_cleanedKey+'       '+ props);
+
+            } else if (EXTERNALDATA[key]) {
+              // console.log('HERE2');
+              if (TEMPLATE[props].keywords && TEMPLATE[props].keywords.length > 0) {
+                for (var i = 0; i < keywords.length; i++) {
+                  // console.log(TEMPLATE[props].hint)
+                  if( _cleanedKey == keywords[i] ){
+                    // console.log('---- keyword Match ---');
+                    // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
+                    assignFinding(EXTERNALDATA, key, FINALRESULT, props)
+                  } else if (_cleanedKey.indexOf(keywords[i])> -1 && keywords[i].length > 2) {
+
+                    if (!stopWordChecker(_cleanedKey, stopKeywprds)){
+                      // console.log('---- keyword indexOf ---');
+                      // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
+                      assignFinding(EXTERNALDATA, key, FINALRESULT, props)
+                    }
+
+
+                  // } else if (similarity(_cleanedKey, keywords[i]) > .6) {
+                    // console.log('---- keyword similarity ---');
+                    // console.log(similarity(_cleanedKey, keywords[i]));
+                    // console.log(_cleanedKey+'       '+keywords[i])
+
+                  }
                 }
-
-
-              // } else if (similarity(_cleanedKey, keywords[i]) > .6) {
-                // console.log('---- keyword similarity ---');
-                // console.log(similarity(_cleanedKey, keywords[i]));
-                // console.log(_cleanedKey+'       '+keywords[i])
-
               }
             }
           }
-        } else if (EXTERNALDATA[key] && typeof(EXTERNALDATA[key]) == 'object') {
+        } else {
           traverse(EXTERNALDATA[key])
         }
       }
-      if(typeof(EXTERNALDATA[key]) == "object"){
-          traverse(EXTERNALDATA[key])
-      }
-
     }
   })(EXTERNALDATA, X)
 }

@@ -16,8 +16,9 @@
   "author": "Khaled Awad <khaled@alyawad.com> (khaled.alyawad.com)",
   "license": "ISC",
   "devDependencies": {
-    "decamelize":"latest",
-    "similarity":"latest",
-    "lodash":"latest"
+    "decamelize": "^1.2.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "similarity": "^1.1.1"
   }
 }
