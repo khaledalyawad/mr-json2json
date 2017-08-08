@@ -129,7 +129,13 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        if (input) {
+          // console.log(input);
+          // return moment.isDate(moment(input));
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     "endDate": {
@@ -139,7 +145,13 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        if (input) {
+          // console.log(input);
+          // return moment.isDate(moment(input));
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     "startTime": {
@@ -149,7 +161,13 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        if (input) {
+          // console.log(input);
+          // return moment.isDate(moment(input));
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     "endTime": {
@@ -159,7 +177,13 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        if (input) {
+          // console.log(input);
+          // return moment.isDate(moment(input));
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     "tags": {

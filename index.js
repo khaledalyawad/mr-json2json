@@ -17,7 +17,6 @@ function traverseWapper (EXTERNALDATA, X) {
       for (var i = 0; i < stopKeywprdsArray.length; i++) {
         if (inputWord.indexOf(stopKeywprdsArray[i]) > -1) {
           result = '>>>>>>>>>>>dontAdd<<<<<<<<<<<<<';
-          // console.log(result);
         }
       }
       return result
@@ -36,37 +35,23 @@ function traverseWapper (EXTERNALDATA, X) {
     }
 
     for(key in EXTERNALDATA){
-      // console.log(key);
       for(props in TEMPLATE){
         var keywords = TEMPLATE[props].keywords
         var stopKeywprds = TEMPLATE[props].stopKeywprds
-        // console.log(props, key);
         var _cleanedKey = decamelize(key, " ").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}_]/g,' ').replace(/[0-9]/g, '')
 
         if (typeof(EXTERNALDATA[key]) != 'object') {
-          // if(true){
-          //   console.log(props);
-          //   console.log(TEMPLATE[props].keyHint);
           if(TEMPLATE[props].keyHint(_cleanedKey) && TEMPLATE[props].valueHint(EXTERNALDATA[key])){
-
             if(_cleanedKey == props.toLowerCase()){
               // console.log('---- key Match ---');
               // console.log(props+ ' : '+_cleanedKey+'       '+ props);
               assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-
             }else if(_cleanedKey.indexOf(props.toLowerCase()) > -1){
-
               if(!stopWordChecker(_cleanedKey, stopKeywprds)) {
                 // console.log('---- key indexOf ---');
                 // console.log(props+ ' : '+_cleanedKey+'       '+ props);
                 assignFinding(EXTERNALDATA, key, FINALRESULT, props)
               }
-
-            // }else if (similarity(_cleanedKey, props) > .6) {
-              // console.log('---- key similarity ---');
-              // console.log(similarity(_cleanedKey, props));
-              // console.log(_cleanedKey+'       '+ props);
-
             } else if (EXTERNALDATA[key]) {
               // console.log('HERE2');
               if (TEMPLATE[props].keywords && TEMPLATE[props].keywords.length > 0) {
@@ -83,13 +68,6 @@ function traverseWapper (EXTERNALDATA, X) {
                       // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
                       assignFinding(EXTERNALDATA, key, FINALRESULT, props)
                     }
-
-
-                  // } else if (similarity(_cleanedKey, keywords[i]) > .6) {
-                    // console.log('---- keyword similarity ---');
-                    // console.log(similarity(_cleanedKey, keywords[i]));
-                    // console.log(_cleanedKey+'       '+keywords[i])
-
                   }
                 }
               }
