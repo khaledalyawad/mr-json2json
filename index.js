@@ -43,7 +43,7 @@ function traverseWapper (EXTERNALDATA, X) {
         // console.log(props, key);
         var _cleanedKey = decamelize(key, " ").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}_]/g,' ').replace(/[0-9]/g, '')
 
-        if (EXTERNALDATA[key] && typeof(EXTERNALDATA[key]) != 'object') {
+        if (typeof(EXTERNALDATA[key]) != 'object') {
           // if(true){
           //   console.log(props);
           //   console.log(TEMPLATE[props].keyHint);

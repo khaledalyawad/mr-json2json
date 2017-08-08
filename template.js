@@ -239,7 +239,7 @@ function template() {
         return true;
       },
       valueHint: function(){
-
+        return true;
       }
     },
     "type": {
