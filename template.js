@@ -1,4 +1,5 @@
 var moment = require('moment');
+var validator = require('validator');
 
 function template() {
   return {
@@ -39,7 +40,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        return validator.isFloat(input.toString() , { min: -90, max: 90 })
       }
     },
     "long": {
@@ -49,7 +50,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        return validator.isFloat(input.toString() , { min: -180, max: 180 })
       }
     },
     "postalCode": {
@@ -129,13 +130,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        if (input) {
-          // console.log(input);
-          // return moment.isDate(moment(input));
-          return true;
-        } else {
-          return false;
-        }
+        return moment(input)._isValid;
       }
     },
     "endDate": {
@@ -145,13 +140,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        if (input) {
-          // console.log(input);
-          // return moment.isDate(moment(input));
-          return true;
-        } else {
-          return false;
-        }
+        return moment(input)._isValid;
       }
     },
     "startTime": {
@@ -161,13 +150,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        if (input) {
-          // console.log(input);
-          // return moment.isDate(moment(input));
-          return true;
-        } else {
-          return false;
-        }
+        return moment(input)._isValid;
       }
     },
     "endTime": {
@@ -177,13 +160,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        if (input) {
-          // console.log(input);
-          // return moment.isDate(moment(input));
-          return true;
-        } else {
-          return false;
-        }
+        return moment(input)._isValid;
       }
     },
     "tags": {
@@ -203,7 +180,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        return validator.isMobilePhone(input, 'any');
       }
     },
     "website": {
@@ -213,7 +190,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        return validator.isURL(input);
       }
     },
     "email": {
@@ -223,7 +200,7 @@ function template() {
         return true;
       },
       valueHint: function(input){
-        return true;
+        return validator.isEmail(input);
       }
     },
     "parking": {
@@ -262,8 +239,8 @@ function template() {
       keyHint: function(input){
         return true;
       },
-      valueHint: function(){
-        return true;
+      valueHint: function(input){
+        return validator.isURL(input);
       }
     },
     "type": {

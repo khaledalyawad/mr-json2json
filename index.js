@@ -24,13 +24,15 @@ function traverseWapper (EXTERNALDATA, X) {
 
     function assignFinding(_EXTERNALDATA, _key, _FINALRESULT, _props){
       if (_EXTERNALDATA[_key]) {
-        _FINALRESULT[_props] = _FINALRESULT[_props] || {};
-        _FINALRESULT[_props].values = _FINALRESULT[_props].values || [];
+        if (TEMPLATE[_props].keyHint(_cleanedKey) && TEMPLATE[_props].valueHint(_EXTERNALDATA[_key])) {
+          _FINALRESULT[_props] = _FINALRESULT[_props] || {};
+          _FINALRESULT[_props].values = _FINALRESULT[_props].values || [];
 
-        _FINALRESULT[_props].values.push(_EXTERNALDATA[_key]);
-        _FINALRESULT[_props].values = _.uniq(_FINALRESULT[_props].values)
-        _FINALRESULT[_props].value = _FINALRESULT[_props].values.join(" , ")
+          _FINALRESULT[_props].values.push(_EXTERNALDATA[_key]);
+          _FINALRESULT[_props].values = _.uniq(_FINALRESULT[_props].values)
+          _FINALRESULT[_props].value = _FINALRESULT[_props].values.join(" , ")
 
+        }
       }
     }
 
@@ -41,33 +43,31 @@ function traverseWapper (EXTERNALDATA, X) {
         var _cleanedKey = decamelize(key, " ").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}_]/g,' ').replace(/[0-9]/g, '')
 
         if (typeof(EXTERNALDATA[key]) != 'object') {
-          if(TEMPLATE[props].keyHint(_cleanedKey) && TEMPLATE[props].valueHint(EXTERNALDATA[key])){
-            if(_cleanedKey == props.toLowerCase()){
-              // console.log('---- key Match ---');
+          if(_cleanedKey == props.toLowerCase()){
+            // console.log('---- key Match ---');
+            // console.log(props+ ' : '+_cleanedKey+'       '+ props);
+            assignFinding(EXTERNALDATA, key, FINALRESULT, props, _cleanedKey)
+          }else if(_cleanedKey.indexOf(props.toLowerCase()) > -1){
+            if(!stopWordChecker(_cleanedKey, stopKeywprds)) {
+              // console.log('---- key indexOf ---');
               // console.log(props+ ' : '+_cleanedKey+'       '+ props);
-              assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-            }else if(_cleanedKey.indexOf(props.toLowerCase()) > -1){
-              if(!stopWordChecker(_cleanedKey, stopKeywprds)) {
-                // console.log('---- key indexOf ---');
-                // console.log(props+ ' : '+_cleanedKey+'       '+ props);
-                assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-              }
-            } else if (EXTERNALDATA[key]) {
-              // console.log('HERE2');
-              if (TEMPLATE[props].keywords && TEMPLATE[props].keywords.length > 0) {
-                for (var i = 0; i < keywords.length; i++) {
-                  // console.log(TEMPLATE[props].hint)
-                  if( _cleanedKey == keywords[i] ){
-                    // console.log('---- keyword Match ---');
-                    // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
-                    assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-                  } else if (_cleanedKey.indexOf(keywords[i])> -1 && keywords[i].length > 2) {
+              assignFinding(EXTERNALDATA, key, FINALRESULT, props, _cleanedKey)
+            }
+          } else if (EXTERNALDATA[key]) {
+            // console.log('HERE2');
+            if (TEMPLATE[props].keywords && TEMPLATE[props].keywords.length > 0) {
+              for (var i = 0; i < keywords.length; i++) {
+                // console.log(TEMPLATE[props].hint)
+                if( _cleanedKey == keywords[i] ){
+                  // console.log('---- keyword Match ---');
+                  // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
+                  assignFinding(EXTERNALDATA, key, FINALRESULT, props, _cleanedKey)
+                } else if (_cleanedKey.indexOf(keywords[i])> -1 && keywords[i].length > 2) {
 
-                    if (!stopWordChecker(_cleanedKey, stopKeywprds)){
-                      // console.log('---- keyword indexOf ---');
-                      // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
-                      assignFinding(EXTERNALDATA, key, FINALRESULT, props)
-                    }
+                  if (!stopWordChecker(_cleanedKey, stopKeywprds)){
+                    // console.log('---- keyword indexOf ---');
+                    // console.log(props+ ' : '+_cleanedKey+'       '+keywords[i]);
+                    assignFinding(EXTERNALDATA, key, FINALRESULT, props, _cleanedKey)
                   }
                 }
               }
