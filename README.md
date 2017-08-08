@@ -1,4 +1,4 @@
-# MR. JSON2JSON
+# MR-JSON2JSON
 ![image](./mr-json2json.png)
 converts json to json using node, just construct your own template, keywords and hint and get your json. Use it to prepare and clean your data
 
@@ -6,7 +6,7 @@ converts json to json using node, just construct your own template, keywords and
 
 ### Installation
 ```
-npm install --save gulp-task-loader-with-params
+npm install --save mr-json2json
 ```
 
 ### Requiring:
