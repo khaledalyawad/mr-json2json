@@ -1,6 +1,6 @@
 {
   "name": "mr-json2json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/khaledalyawad/mr-json2json",
   "description": "converts json to json using node, just construct your own template, keywords and hint and get your json. Use it to prepare and clean your data",
   "main": "index.js",
