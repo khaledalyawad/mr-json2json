@@ -1,7 +1,6 @@
 # MR-JSON2JSON
 ![image](./mr-json2json.png)
-converts json to json using node, just construct your own template, keywords and hint and get your json. Use it to prepare and clean your data
-
+This module converts json to json using node, just construct your own template, keywords and hint and get your json. Use it to prepare and clean your data
 
 
 ### Installation
@@ -12,6 +11,11 @@ npm install --save mr-json2json
 ### Requiring:
 ```
 var mrjson2json = require('mr-json2json');
+```
+
+### Usage
+```
+mrjson2json(template, data);
 ```
 
 #### Sample data
@@ -37,8 +41,16 @@ data = {
 }
 ```
 
-
 ### Template
+It is recommended to put your template in template.js .  You will then need to require template.js using `var template = require('./template');`
+
+#### You might need to use these libraries in your template.js
+```
+var moment = require('moment');
+var validator = require('validator');
+```
+
+This is how your template.js looks like.
 ```
 function template() {
   return {
@@ -325,9 +337,4 @@ function template() {
   }
 }
 
-```
-
-### Usage
-```
-mrjson2json(template, data);
 ```
