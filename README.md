@@ -42,7 +42,7 @@ data = {
 ```
 
 ### Template
-It is recommended to put your template in template.js .  You will then need to require template.js using `var template = require('./template');`
+It is recommended to put your template in template.js .  You will then need to require template.js using `var template = require('./template.js');`
 
 #### You might need to use these libraries in your template.js
 ```
