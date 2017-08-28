@@ -1,5 +1,4 @@
 var decamelize = require('decamelize');
-var similarity = require('similarity');
 var _ = require('lodash');
 
 module.exports = function(_template, _data) {
